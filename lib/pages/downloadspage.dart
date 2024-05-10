@@ -12,8 +12,9 @@ class DownloadPage extends StatefulWidget {
 }
 
 class _DownloadPage extends State<DownloadPage> {
+  List smallpages = [const Downloding(), MoviesList()];
   int curentsmall = 0;
-  List smallpages = [Downloding(), MoviesList()];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,9 +42,9 @@ class _DownloadPage extends State<DownloadPage> {
                           curentsmall = 1;
                         });
                       },
-                      child: const Text(
+                      child: Text(
                         "List Movie",
-                        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white70),
+                        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: curentsmall == 1 ? Colors.deepPurpleAccent : Colors.white70),
                       )),
                   InkWell(
                       onTap: () {
@@ -51,9 +52,9 @@ class _DownloadPage extends State<DownloadPage> {
                           curentsmall = 0;
                         });
                       },
-                      child: const Text(
+                      child: Text(
                         "Downloading",
-                        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white70),
+                        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: curentsmall == 0 ? Colors.deepPurpleAccent : Colors.white70),
                       ))
                 ],
               ),
@@ -68,6 +69,8 @@ class _DownloadPage extends State<DownloadPage> {
 }
 
 class Downloding extends StatelessWidget {
+  const Downloding({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -83,6 +86,7 @@ class Downloding extends StatelessWidget {
             movename: "Capitan America: The First Avanger (2011)",
             compony: "Marvel",
             size: "1.6 GB",
+            
           )
         ],
       ),
