@@ -87,6 +87,7 @@ class Downloding extends StatelessWidget {
             compony: "Marvel",
             size: "1.6 GB",
             
+
           )
         ],
       ),

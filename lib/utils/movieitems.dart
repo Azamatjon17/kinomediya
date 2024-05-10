@@ -6,11 +6,11 @@ class MoveItem extends StatelessWidget {
   String movename;
   String compony;
   String size;
-  MoveItem({required this.movename, required this.compony, required this.size});
+  MoveItem({super.key, required this.movename, required this.compony, required this.size});
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       height: 180,
       width: double.infinity,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), color: Colors.white30),
@@ -38,12 +38,31 @@ class MoveItem extends StatelessWidget {
                       size,
                       style: const TextStyle(fontSize: 16, color: Colors.white70, fontWeight: FontWeight.w500),
                     ),
-                    const Row(children: [
-                      Icon(
+                    Row(children: [
+                      const Icon(
                         Icons.play_circle_fill,
                         color: Colors.white70,
                         size: 30,
                       ),
+                      PopupMenuButton(
+                          color: Colors.white70,
+                          iconColor: Colors.white70,
+                          itemBuilder: (ctx) {
+                            return [
+                              PopupMenuItem(
+                                onTap: () {},
+                                child: const Text("Re Download"),
+                              ),
+                              PopupMenuItem(
+                                onTap: () {},
+                                child: const Text("Details"),
+                              ),
+                              PopupMenuItem(
+                                onTap: () {},
+                                child: const Text("Delate"),
+                              ),
+                            ];
+                          }),
                     ])
                   ],
                 )
